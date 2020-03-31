@@ -1,0 +1,29 @@
+{
+  "name": "angular-9-test-app",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "node --max_old_space_size=32768 ./node_modules/@angular/cli/bin/ng",
+    "start": "ng serve --base-href /app/ --host 0.0.0.0 --open"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "9.1.0",
+    "@angular/common": "9.1.0",
+    "@angular/compiler": "9.1.0",
+    "@angular/core": "9.1.0",
+    "@angular/forms": "9.1.0",
+    "@angular/platform-browser": "9.1.0",
+    "@angular/platform-browser-dynamic": "9.1.0",
+    "@angular/router": "9.1.0",
+    "core-js": "2.6.11",
+    "rxjs": "6.5.4",
+    "zone.js": "0.10.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "0.901.0",
+    "@angular/cli": "9.1.0",
+    "@angular/compiler-cli": "9.1.0",
+    "http-proxy-middleware": "1.0.1",
+    "typescript": "3.8.3"
+  }
+}

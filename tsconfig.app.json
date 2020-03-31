@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "module": "commonjs",
+    "outDir": "./out-tsc/app",
+    "types": ["node"]
+  },
+  "exclude": ["test.ts", "**/*.spec.ts", "**/*.stories.ts"]
+}

@@ -1,0 +1,117 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "sublimd-application": {
+      "projectType": "application",
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "smd",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "./build/public/app",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "./tsconfig.app.json",
+            "aot": true,
+            "assets": [],
+            "styles": []
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                },
+                {
+                  "replace": "./node_modules/xlsx/dist/cpexcel.js",
+                  "with": "src/app/component/smd-analytics/smd-analytics-export-service/empty-file.ts"
+                }
+              ]
+            },
+            "es5": {
+              "tsConfig": "./tsconfig.app.es5.json"
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "sublimd-application:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "sublimd-application:build:production"
+            },
+            "es5": {
+              "browserTarget": "sublimd-application:build:es5"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "sublimd-application:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "karmaConfig": "./karma.conf.js",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "./tsconfig.spec.json",
+            "scripts": [],
+            "styles": ["src/styles/styles.scss"],
+            "assets": ["src/assets", "src/favicon.ico", "src/manifest.json"]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "eslintConfig": ".eslintrc.js",
+            "tsConfig": ["tsconfig.json", "e2e/tsconfig.json"],
+            "exclude": ["**/.storybook/**", "**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "sublimd-application-e2e": {
+      "root": "e2e",
+      "sourceRoot": "e2e",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "./protractor.conf.js",
+            "devServerTarget": "sublimd-application:serve"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "sublimd-application",
+  "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "smd",
+      "styleext": "scss"
+    },
+    "@schematics/angular:directive": {
+      "prefix": "smd"
+    }
+  }
+}
