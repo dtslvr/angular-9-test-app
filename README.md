@@ -2,7 +2,7 @@
 
 Angular 9.1.0
 
-## Setup
+## Setup
 
 Run `yarn`
 
