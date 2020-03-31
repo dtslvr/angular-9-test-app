@@ -18,11 +18,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "target": "es2015",
     "lib": ["es2017", "dom"],
-    "module": "esnext",
-    "paths": {
-      "@sublimd/app/*": ["./src/app/*"],
-      "@sublimd/env/*": ["./src/environments/*"]
-    }
+    "module": "esnext"
   },
   "files": ["./src/main.ts", "./src/polyfills.ts"]
 }
